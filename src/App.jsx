@@ -53,7 +53,7 @@ const Vis = () => {
       const dracoLoader = new DRACOLoader();
       dracoLoader.setDecoderPath("/js/libs/draco/"),
         gltfloader.setDRACOLoader(dracoLoader),
-        gltfloader.load("./src/last.gltf", function (gltf) {
+        gltfloader.load("./src/last.glb", function (gltf) {
 			if(splintColor){gltf.scene.children[0].material.color.set(splintColor)}
           (gltf.scene.rotation.y = 3.1),
             gltf.scene.position.set(pos_x, pos_y, pos_z),
@@ -118,11 +118,6 @@ const Vis = () => {
       mount.current.removeChild(renderer.domElement);
     };
   }, [legColor,splintColor]);
-
-  const getColor = (e) => {	  
-setlegColor(e.target.value)  
-console.log(legColor);
-};
   return (
     <div>
       <div
@@ -136,7 +131,7 @@ console.log(legColor);
         </label>
         <input id="myColor" type="color" defaultValue="#f6b73c" className="colors" onChange={(e)=>{setlegColor(e.target.value)}} />
         <label id="click1">splint:</label>
-        <input id="myColor1" type="color" className="colors" defaultvalue="#ffffff"  onChange={(e)=>{setsplintColor(e.target.value)}} />
+        <input id="myColor1" type="color" className="colors" defaultValue="#ffffff"  onChange={(e)=>{setsplintColor(e.target.value)}} />
       </div>
     </div>
   );
